@@ -1,66 +1,212 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Recursos/Fuentes/Kenney Pixel Square.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Recursos/Fuentes/Fuente_MP.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Recursos/Imágenes/green_button02.png" type="Texture" id=2]
 [ext_resource path="res://Escenas/Parallax_Bg_Menu_Inicio.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Control_Menu_Ini.gd" type="Script" id=4]
+[ext_resource path="res://Recursos/Imágenes/blue_button02.png" type="Texture" id=5]
+[ext_resource path="res://Recursos/Imágenes/Multiworld verde claro-02.png" type="Texture" id=6]
+[ext_resource path="res://Escenas/ControlPrincipalMenu.gd" type="Script" id=7]
+[ext_resource path="res://Escenas/PrincipalMenuAjustes.gd" type="Script" id=8]
+[ext_resource path="res://Escenas/Select.gd" type="Script" id=9]
+[ext_resource path="res://Recursos/Imágenes/pause.png" type="Texture" id=10]
+[ext_resource path="res://Recursos/Imágenes/leaderboardsComplex.png" type="Texture" id=11]
+[ext_resource path="res://Recursos/Imágenes/audioOn.png" type="Texture" id=12]
+[ext_resource path="res://Recursos/Imágenes/audioOff.png" type="Texture" id=14]
+[ext_resource path="res://Recursos/Imágenes/red_sliderRight.png" type="Texture" id=16]
+[ext_resource path="res://Recursos/Imágenes/elementStone018.png" type="Texture" id=17]
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 190, 49 )
+expand_margin_top = 5.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 190, 49 )
+expand_margin_top = 5.0
+expand_margin_bottom = 10.0
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
-outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 30
-outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=35]
+size = 14
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=36]
+default_font = SubResource( 35 )
 
 [node name="Menu_Principal" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = 2.0
 script = ExtResource( 4 )
 
 [node name="VBoxBotones" type="VBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -235.0
-margin_top = -61.0
-margin_right = 235.0
-margin_bottom = 203.0
+anchor_left = 0.375
+anchor_top = 0.375
+anchor_right = 0.609
+anchor_bottom = 0.764
+margin_left = -0.250061
+margin_top = 69.0
+margin_right = 0.105957
+margin_bottom = 104.248
 custom_constants/separation = 50
 
 [node name="Btn_Jugar" type="Button" parent="VBoxBotones"]
-margin_right = 470.0
-margin_bottom = 52.0
-custom_fonts/font = ExtResource( 2 )
+margin_right = 320.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 3 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/normal = SubResource( 4 )
 text = "Jugar"
 
 [node name="Btn_Puntaje" type="Button" parent="VBoxBotones"]
-margin_top = 102.0
-margin_right = 470.0
-margin_bottom = 154.0
+margin_top = 96.0
+margin_right = 320.0
+margin_bottom = 142.0
 custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/normal = SubResource( 4 )
 text = "Puntaje"
 
 [node name="Btn_Ajustes" type="Button" parent="VBoxBotones"]
-margin_top = 204.0
-margin_right = 470.0
-margin_bottom = 256.0
+margin_top = 192.0
+margin_right = 320.0
+margin_bottom = 238.0
+rect_pivot_offset = Vector2( -608.75, -312 )
 custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/normal = SubResource( 4 )
 text = "Ajustes"
 
-[node name="Sprite" type="Sprite" parent="VBoxBotones"]
-position = Vector2( 1, 0 )
-
-[node name="Sprite2" type="Sprite" parent="VBoxBotones"]
-position = Vector2( -1, -1 )
+[node name="Btn_Salir" type="Button" parent="VBoxBotones"]
+margin_top = 288.0
+margin_right = 320.0
+margin_bottom = 334.0
+rect_pivot_offset = Vector2( -608.75, -312 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/normal = SubResource( 4 )
+text = "Salir"
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 3 )]
+pause_mode = 2
+
+[node name="Title" type="Sprite" parent="."]
+position = Vector2( 670, 220 )
+scale = Vector2( 0.243332, 0.243332 )
+texture = ExtResource( 6 )
+
+[node name="Control" type="Control" parent="."]
+pause_mode = 2
+margin_left = -1.0
+margin_right = 123.0
+margin_bottom = 104.0
+script = ExtResource( 7 )
+
+[node name="efecto" type="Tween" parent="Control"]
+pause_mode = 2
+
+[node name="Control" type="Control" parent="Control"]
+margin_left = -771.0
+margin_top = 93.0
+margin_right = -630.0
+margin_bottom = 238.0
+rect_scale = Vector2( 4, 4 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="RedPanel" type="Sprite" parent="Control/Control"]
+position = Vector2( 71, 84 )
+scale = Vector2( 0.768571, 0.824286 )
+texture = ExtResource( 17 )
+
+[node name="Pause" type="TextureButton" parent="Control/Control"]
+margin_left = 62.0
+margin_top = 108.0
+margin_right = 162.0
+margin_bottom = 208.0
+rect_scale = Vector2( 0.2, 0.2 )
+texture_normal = ExtResource( 10 )
+
+[node name="Select" type="TextureRect" parent="Control/Control/Pause"]
+visible = false
+margin_left = -32.0
+margin_top = 35.0
+margin_right = 8.0
+margin_bottom = 75.0
+texture = ExtResource( 16 )
+script = ExtResource( 9 )
+
+[node name="Volume" type="TextureButton" parent="Control/Control"]
+margin_left = 81.0
+margin_top = 79.0
+margin_right = 181.0
+margin_bottom = 179.0
+rect_scale = Vector2( 0.23, 0.23 )
+texture_normal = ExtResource( 14 )
+texture_disabled = ExtResource( 12 )
+
+[node name="Select" type="TextureRect" parent="Control/Control/Volume"]
+visible = false
+margin_left = -32.0
+margin_top = 40.0
+margin_right = 8.0
+margin_bottom = 80.0
+texture = ExtResource( 16 )
+script = ExtResource( 9 )
+
+[node name="Score" type="TextureButton" parent="Control/Control"]
+margin_left = 42.0
+margin_top = 77.0
+margin_right = 142.0
+margin_bottom = 177.0
+rect_scale = Vector2( 0.25, 0.25 )
+texture_normal = ExtResource( 11 )
+
+[node name="Select" type="TextureRect" parent="Control/Control/Score"]
+visible = false
+margin_left = -32.0
+margin_top = 44.0
+margin_right = 8.0
+margin_bottom = 84.0
+texture = ExtResource( 16 )
+script = ExtResource( 9 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Control"]
+margin_left = 30.0
+margin_top = 39.0
+margin_right = 119.0
+margin_bottom = 65.0
+theme = SubResource( 36 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Opciones"
 
 [connection signal="pressed" from="VBoxBotones/Btn_Jugar" to="." method="_on_Btn_Jugar_pressed"]
 [connection signal="pressed" from="VBoxBotones/Btn_Puntaje" to="." method="_on_Btn_Puntaje_pressed"]
 [connection signal="pressed" from="VBoxBotones/Btn_Ajustes" to="." method="_on_Btn_Ajustes_pressed"]
+[connection signal="pressed" from="VBoxBotones/Btn_Salir" to="." method="_on_Btn_Salir_pressed"]
+[connection signal="pressed" from="Control/Control/Pause" to="Control/Control" method="_on_Pause_pressed"]
+[connection signal="pressed" from="Control/Control/Volume" to="Control/Control" method="_on_Volume_pressed"]
+[connection signal="pressed" from="Control/Control/Score" to="Control/Control" method="_on_Score_pressed"]

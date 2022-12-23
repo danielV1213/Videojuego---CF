@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Danger_Effect.mp3-5f5ea8542967b53c68e5f6affeded69d.mp3str"
+
+[deps]
+
+source_file="res://Recursos/Sounds/Danger_Effect.mp3"
+dest_files=[ "res://.import/Danger_Effect.mp3-5f5ea8542967b53c68e5f6affeded69d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
